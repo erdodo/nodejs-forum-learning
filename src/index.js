@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const path = require("path");
 
 const cookieParser = require("cookie-parser");
 const session = require("express-session");
@@ -7,7 +8,7 @@ const session = require("express-session");
 const router = require("./routes/index");
 //const middleware = require("./middleware/index");
 const auths = require("./auths/index");
-const frontend = require("./frontend");
+
 const swagger = require("./swagger/docs");
 
 app.use(cookieParser());
@@ -16,6 +17,11 @@ app.use(
     secret: "Erdodo",
   })
 );
+
+app.use(express.static("../public"));
+app.get("/", (req, res) => {
+  res.sendFile("index.html", { root: path.join(__dirname, "../public") });
+});
 
 app.use(express.json()); //requestte json veri alsın
 app.use(express.urlencoded()); //requestte form data alsın
@@ -31,8 +37,9 @@ app.use("/swagger", swagger);
 
 //istekler
 app.use("/api/v1/", router);
-app.use("/", frontend);
 
 app.listen(3000, () => {
   console.log("express başlatildi");
 });
+
+module.exports = app;
