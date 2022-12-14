@@ -1,15 +1,16 @@
 {
-  "devCommand": "npm run start",
-  "buildCommand": "npm run start",
+  "version": 2,
+  "env": {},
   "builds": [
     {
-      "src": "index.js",
-      "use": "@vercel/node"
+      "src": "src/index.js",
+      "use": "@vercel/node",
+      "config": { "includeFiles": ["src/**"] }
     }
   ],
   "routes": [
     {
-      "src": "/(.*)",
+      "src": "/api/(.*)",
       "dest": "src/index.js"
     }
   ]
