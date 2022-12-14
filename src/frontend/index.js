@@ -3,7 +3,12 @@ const router = Router();
 
 router.get("/", (req, res) => {
   res.send(`
-        <h1>Merhaba</h1>
+        <h1>Merhaba 23423423</h1>
+    `);
+});
+router.get("/selam", (req, res) => {
+  res.send(`
+        <h1>selam</h1>
     `);
 });
 
