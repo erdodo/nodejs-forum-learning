@@ -31,18 +31,27 @@ router.get(
   },
   (req, res, next) => {
     console.log("sonra burasi calisiyor");
-    res.send(test_list);
-    next();
+
+    console.log(req.query); //query params (?params=deger)
+    const req_query = req.query.miktar;
+    if (!isNaN(req_query)) {
+      res.send(test_list.filter((e) => e.miktar < req_query));
+    } else {
+      res.send(test_list);
+      next();
+    }
   },
   () => {
     console.log("istek tamamlandı");
   }
 );
+
 //route params
 router.get("/:id", (req, res) => {
   const data = test_list.find((e) => e.id == req.params.id);
   res.send(data);
 });
+
 //double route params
 router.get("/:id/:name", (req, res) => {
   console.log(req.params);
