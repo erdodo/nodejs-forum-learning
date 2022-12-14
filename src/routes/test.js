@@ -32,7 +32,11 @@ router.get(
   (req, res, next) => {
     console.log("sonra burasi calisiyor");
 
-    console.log(req.query); //query params (?params=deger)
+    res.cookie("visited", true, {
+      maxAge: 60000,
+    });
+
+    console.log("Query: " + req.query); //query params (?params=deger)
     const req_query = req.query.miktar;
     if (!isNaN(req_query)) {
       res.send(test_list.filter((e) => e.miktar < req_query));
@@ -48,18 +52,19 @@ router.get(
 
 //route params
 router.get("/:id", (req, res) => {
+  console.log("Cookies: ", req.cookies);
   const data = test_list.find((e) => e.id == req.params.id);
   res.send(data);
 });
 
 //double route params
 router.get("/:id/:name", (req, res) => {
-  console.log(req.params);
+  console.log("Route params: " + req.params);
   res.send(200);
 });
 
 router.post("", (req, res, next) => {
-  console.log(req.body);
+  console.log("Request body:" + req.body);
 
   test_list.push(req.body);
   res.send(test_list);

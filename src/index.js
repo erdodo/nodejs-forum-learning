@@ -1,8 +1,11 @@
 const express = require("express");
 const app = express();
+const cookieParser = require("cookie-parser");
+
 const router = require("./routes/index");
 const middleware = require("./middleware/index");
 
+app.use(cookieParser());
 app.use(express.json()); //requestte json veri alsın
 app.use(express.urlencoded()); //requestte form data alsın
 
