@@ -32,6 +32,8 @@ router.get(
   (req, res, next) => {
     console.log("sonra burasi calisiyor");
 
+    console.log("Cookies: ", req.cookies);
+
     res.cookie("visited", true, {
       maxAge: 60000,
     });
@@ -50,9 +52,13 @@ router.get(
   }
 );
 
+//session
+router.get("/session", (req, res) => {
+  res.send(req.session);
+});
+
 //route params
 router.get("/:id", (req, res) => {
-  console.log("Cookies: ", req.cookies);
   const data = test_list.find((e) => e.id == req.params.id);
   res.send(data);
 });

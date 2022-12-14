@@ -1,0 +1,18 @@
+{
+    "user": {
+        "config": {
+            "1": {
+                "money_visible": false,
+                "pin": "1234"
+            },
+            "2": {
+                "money_visible": false,
+                "pin": "4566"
+            },
+            "3": {
+                "username": "erdodo",
+                "password": "123123"
+            }
+        }
+    }
+}
