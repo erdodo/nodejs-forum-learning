@@ -1,4 +1,5 @@
 {
+  "devCommand": "npm run start",
   "builds": [
     {
       "src": "index.js",
