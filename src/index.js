@@ -16,12 +16,22 @@ app.listen(3000, () => {
 
 const test_list = [
   {
-    item: "milk",
-    test: 2,
+    id: 1,
+    deger: "süt",
+    miktar: 12,
+    durum: true,
   },
   {
-    item: "asdasd",
-    test: 325,
+    id: 2,
+    deger: "şeker",
+    miktar: 102,
+    durum: true,
+  },
+  {
+    id: 3,
+    deger: "tuz",
+    miktar: 350,
+    durum: true,
   },
 ];
 
@@ -41,6 +51,16 @@ app.get(
     console.log("istek tamamlandı");
   }
 );
+//route params
+app.get("/test/:id", (req, res) => {
+  const data = test_list.find((e) => e.id == req.params.id);
+  res.send(data);
+});
+//double route params
+app.get("/test/:id/:name", (req, res) => {
+  console.log(req.params);
+  res.send(200);
+});
 
 app.post("/test", (req, res, next) => {
   console.log(req.body);
