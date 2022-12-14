@@ -1,0 +1,186 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Node Simple",
+    "description": "Açıklama",
+    "version": "0.0.1"
+  },
+  "host": "localhost:3000/api/v1",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "test",
+      "description": ""
+    },
+    {
+      "name": "test2",
+      "description": ""
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/test/": {
+      "get": {
+        "tags": [
+          "test"
+        ],
+        "summary": "Özet...",
+        "description": "Açıklama...",
+        "parameters": [
+          {
+            "name": "miktar",
+            "description": "Miktar açıklaması...",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Başarılı...",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "number",
+                    "example": 1
+                  },
+                  "deger": {
+                    "type": "string",
+                    "example": "süt"
+                  },
+                  "miktar": {
+                    "type": "number",
+                    "example": 12
+                  },
+                  "durum": {
+                    "type": "boolean",
+                    "example": true
+                  }
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/test/session": {
+      "get": {
+        "tags": [
+          "test"
+        ],
+        "summary": "Özet...",
+        "description": "Açıklama...",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/test/{id}": {
+      "get": {
+        "tags": [
+          "test"
+        ],
+        "summary": "Özet...",
+        "description": "Açıklama...",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/test/{id}/{name}": {
+      "get": {
+        "tags": [
+          "test"
+        ],
+        "summary": "Özet...",
+        "description": "Açıklama...",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/test2/{id}": {
+      "put": {
+        "tags": [
+          "test2"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "obj",
+            "in": "body",
+            "description": "Kullanıcı ayarları...",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "example": "Jhon Doe"
+                },
+                "age": {
+                  "type": "number",
+                  "example": 29
+                },
+                "about": {
+                  "type": "string",
+                  "example": ""
+                }
+              },
+              "required": [
+                "name",
+                "age"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  }
+}

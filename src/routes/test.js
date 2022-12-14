@@ -38,6 +38,17 @@ router.get(
       maxAge: 60000,
     });
 
+    //  #swagger.parameters['miktar'] = { description: 'Miktar açıklaması...' }
+    /* #swagger.responses[200] = {
+                description: 'Başarılı...',
+                schema: [{
+                  id: 1,
+                  deger: "süt",
+                  miktar: 12,
+                  durum: true,
+                },]
+        } */
+
     console.log("Query: " + req.query); //query params (?params=deger)
     const req_query = req.query.miktar;
     if (!isNaN(req_query)) {
