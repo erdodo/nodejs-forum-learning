@@ -1,11 +1,11 @@
 {
   "version": 2,
   "env": {},
-  "builds": [{ "src": "*/index.js", "use": "@now/node-server" }],
+  "builds": [{ "src": "*/src/index.js", "use": "node" }],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "/"
+      "dest": "/src"
     }
   ]
 }
